@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_application_1/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // สร้างแอปที่ใช้สำหรับทดสอบ
-
-    // สร้าง Widget และเริ่มต้นการทดสอบ
+    // สร้าง MaterialApp พร้อม CounterWidget
     await tester.pumpWidget(MaterialApp(
-      home: FoodRecommendationPage(),
+      home: CounterWidget(),
     ));
 
-    // ตรวจสอบว่าเริ่มต้น Counter อยู่ที่ 0
-    expect(find.text('0'), findsOneWidget);
+    // ตรวจสอบว่า Counter เริ่มต้นที่ 0
+    expect(
+        find.text('0'), findsOneWidget); // บรรทัดนี้น่าจะล้มเหลวในโค้ดก่อนหน้า
     expect(find.text('1'), findsNothing);
 
-    // กดปุ่ม '+' และตรวจสอบค่าใหม่
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // กดปุ่ม '+' และกระตุ้นเฟรมใหม่
+    await tester.tap(find.byType(FloatingActionButton));
+    await tester.pump(); // กระตุ้นเฟรมใหม่
 
     // ตรวจสอบว่าค่า Counter เพิ่มเป็น 1
     expect(find.text('0'), findsNothing);
@@ -41,22 +39,28 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'You have pushed the button this many times:',
-          ),
-          Text(
-            '$_counter',
-            // style: Theme.of(context).textTheme,
-          ),
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: _incrementCounter,
-          ),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Counter Test'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              // style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
