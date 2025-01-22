@@ -24,7 +24,10 @@ void main() {
 }
 
 class CounterWidget extends StatefulWidget {
+  const CounterWidget({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CounterWidgetState createState() => _CounterWidgetState();
 }
 
