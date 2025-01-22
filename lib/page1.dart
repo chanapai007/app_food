@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class FoodDetailPage extends StatefulWidget {
   final String title;
   final String imageUrl;
