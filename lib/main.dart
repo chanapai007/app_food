@@ -4,23 +4,21 @@ import 'page1.dart';
 import 'page2.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: 'แอปแนะนำอาหารและของว่าง',
+    theme: ThemeData(
+      primarySwatch: Colors.orange,
+    ),
+    home: FoodRecommendationPage(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'แอปแนะนำอาหารและของว่าง',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: FoodRecommendationPage(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {}
+// }
 
 class FoodRecommendationPage extends StatelessWidget {
   const FoodRecommendationPage({super.key});
