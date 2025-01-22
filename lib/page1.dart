@@ -7,7 +7,7 @@ class FoodDetailPage extends StatefulWidget {
   final String youtubeUrl;
   final String description;
 
-  FoodDetailPage({
+  const FoodDetailPage({super.key, 
     required this.title,
     required this.imageUrl,
     required this.youtubeUrl,
@@ -15,6 +15,7 @@ class FoodDetailPage extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _FoodDetailPageState createState() => _FoodDetailPageState();
 }
 
