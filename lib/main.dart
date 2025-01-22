@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'page1.dart';
+import 'page2.dart';
 
 void main() {
   runApp(MyApp());
@@ -78,21 +80,21 @@ class FoodRecommendationPage extends StatelessWidget {
                     snackItem(
                       'เลย์',
                       'images/3fe80c5a-f59a-4afe-a4cd-9a027b98ac1a.jpg',
-                      'https://www.youtube.com/watch?v=snack1',
+                      'https://www.youtube.com/watch?v=m3ldXKus7rY',
                       'เลย์เป็นขนมขบเคี้ยวที่ทำจากมันฝรั่ง มีรสชาติต่าง ๆ เช่น รสเกลือ รสชีส',
                       context,
                     ),
                     snackItem(
                       'ชาเย็น',
                       'images/6af7f64e-d675-435c-a9d2-eaa2417d6184.jpg',
-                      'https://www.youtube.com/watch?v=snack2',
+                      'https://www.youtube.com/watch?v=dw72YgjBDC8',
                       'ชาเย็นเป็นเครื่องดื่มยอดนิยมในประเทศไทย รสหวานหอม กลมกล่อม',
                       context,
                     ),
                     snackItem(
                       'ไก่ป็อป',
                       'images/AirFryerChickenNuggets.jpg',
-                      'https://www.youtube.com/watch?v=snack3',
+                      'https://www.youtube.com/watch?v=7TuhrVzXXi8',
                       'ไก่ป็อปเป็นของว่างกรอบนอกนุ่มใน สามารถทำเองได้ที่บ้าน',
                       context,
                     ),
@@ -157,196 +159,6 @@ class FoodRecommendationPage extends StatelessWidget {
           SizedBox(height: 5),
           Text(title, style: TextStyle(fontSize: 14)),
         ],
-      ),
-    );
-  }
-}
-
-class FoodDetailPage extends StatefulWidget {
-  final String title;
-  final String imageUrl;
-  final String youtubeUrl;
-  final String description;
-
-  FoodDetailPage({
-    required this.title,
-    required this.imageUrl,
-    required this.youtubeUrl,
-    required this.description,
-  });
-
-  @override
-  _FoodDetailPageState createState() => _FoodDetailPageState();
-}
-
-class _FoodDetailPageState extends State<FoodDetailPage> {
-  bool _isLiked = false;
-  bool _isDisliked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Image.asset(widget.imageUrl,
-                height: 250, width: double.infinity, fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                widget.title,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                widget.description,
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                openUrl(widget.youtubeUrl);
-              },
-              icon: Icon(Icons.video_library),
-              label: Text('ชมวิดีโอ'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    _isLiked ? Icons.thumb_up : Icons.thumb_up_alt_outlined,
-                    color: _isLiked ? Colors.blue : Colors.grey,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _isLiked = !_isLiked;
-                      if (_isLiked) {
-                        _isDisliked = false;
-                      }
-                    });
-                  },
-                ),
-                IconButton(
-                  icon: Icon(
-                    _isDisliked
-                        ? Icons.thumb_down
-                        : Icons.thumb_down_alt_outlined,
-                    color: _isDisliked ? Colors.red : Colors.grey,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _isDisliked = !_isDisliked;
-                      if (_isDisliked) {
-                        _isLiked = false;
-                      }
-                    });
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SnackDetailPage extends StatefulWidget {
-  final String title;
-  final String imageUrl;
-  final String youtubeUrl;
-  final String description;
-
-  SnackDetailPage({
-    required this.title,
-    required this.imageUrl,
-    required this.youtubeUrl,
-    required this.description,
-  });
-
-  @override
-  _SnackDetailPageState createState() => _SnackDetailPageState();
-}
-
-class _SnackDetailPageState extends State<SnackDetailPage> {
-  bool _isLiked = false;
-  bool _isDisliked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Image.asset(widget.imageUrl,
-                height: 250, width: double.infinity, fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                widget.title,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                widget.description,
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                openUrl(widget.youtubeUrl);
-              },
-              icon: Icon(Icons.video_library),
-              label: Text('ชมวิดีโอ'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    _isLiked ? Icons.thumb_up : Icons.thumb_up_alt_outlined,
-                    color: _isLiked ? Colors.blue : Colors.grey,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _isLiked = !_isLiked;
-                      if (_isLiked) {
-                        _isDisliked = false;
-                      }
-                    });
-                  },
-                ),
-                IconButton(
-                  icon: Icon(
-                    _isDisliked
-                        ? Icons.thumb_down
-                        : Icons.thumb_down_alt_outlined,
-                    color: _isDisliked ? Colors.red : Colors.grey,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _isDisliked = !_isDisliked;
-                      if (_isDisliked) {
-                        _isLiked = false;
-                      }
-                    });
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
