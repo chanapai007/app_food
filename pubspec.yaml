@@ -1,0 +1,41 @@
+name: flutter_application_1
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.0.10
+  firebase_core: ^3.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.14.2"
+  flutter_lints: ^5.0.0
+
+
+# flutter_icons:
+#   android: "launcher_icon"
+#   image_path: "assets/icon/icon.png"''
+
+flutter_icons:
+  android: true
+  image_path: "gg/kao.webp"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - gg/kao.webp
+    - images/580e9811-0329-45fc-b5af-ed502d6c772c.jpg
+    - images/6a4b88a6-1be5-40bb-9f95-a4206786fc8e.jpg
+    - images/noodle.jpg
+    - images/185eabb6-8d3c-45ba-af92-a33e779b37c8.jpg
+    - images/3fe80c5a-f59a-4afe-a4cd-9a027b98ac1a.jpg
+    - images/6af7f64e-d675-435c-a9d2-eaa2417d6184.jpg
+    - images/AirFryerChickenNuggets.jpg
