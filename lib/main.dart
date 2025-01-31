@@ -112,7 +112,7 @@ class FoodRecommendationPage extends StatelessWidget {
     );
   }
 
-  Widget foodItem(String title, String imageUrl, String you tubeUrl,
+  Widget foodItem(String title, String imageUrl, String youtubeUrl,
       String description, BuildContext context) {
     return GestureDetector(
       onTap: () {
